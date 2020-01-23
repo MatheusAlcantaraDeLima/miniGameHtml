@@ -7,12 +7,16 @@
     <title>MiniGame</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
-<body>
+<body onload="moverP1()">
     <div class="container">
         <div id="telaGame">
             <div id="p1"></div>
             <div id="bola"></div>
             <div id="p2"></div>
+        </div>
+        <div id="botoes">
+            <button id="up">Up</button>
+            <button id="down">Down</button>
         </div>
     </div>
     <script>
@@ -20,7 +24,15 @@
         var p1 = Document.getElementById('P1');
         var p2 = Document.getElementById('P2');
         var bola = Document.getElementById('bola');
+        var btnUp = Document.getElementById('up');
+        var btnDown = Document.getElementById('down');
 
+        btnUp.addEventListener('Click',moverP1cima);
+        btnDown.addEventListener('Click', moverP1baixo)
+
+        function moverP1cima(){
+            p1.style.transform = "translateY(-10px)";
+        }
     </script>
 </body>
 </html>

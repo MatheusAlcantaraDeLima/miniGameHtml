@@ -37,3 +37,9 @@ div#bola{
     margin-left: 280px;
     background-color: white;
 }
+div#botoes{
+    width: 100px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
