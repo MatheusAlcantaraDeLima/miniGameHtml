@@ -7,7 +7,7 @@
     <title>MiniGame</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
-<body onload="moverP1()">
+<body>
     <div class="container">
         <div id="telaGame">
             <div id="p1"></div>
@@ -20,18 +20,27 @@
         </div>
     </div>
     <script>
-        var telaGame = Document.getElementById('telaGame');
-        var p1 = Document.getElementById('P1');
-        var p2 = Document.getElementById('P2');
-        var bola = Document.getElementById('bola');
-        var btnUp = Document.getElementById('up');
-        var btnDown = Document.getElementById('down');
+        var telaGame = document.getElementById('telaGame');
+        var p1 = document.getElementById('P1');
+        var p2 = document.getElementById('P2');
+        var bola = document.getElementById('bola');
+        var btnUp = document.getElementById('up');
+        var btnDown = document.getElementById('down');
 
         btnUp.addEventListener('Click',moverP1cima);
-        btnDown.addEventListener('Click', moverP1baixo)
+        btnDown.addEventListener('Click', moverP1baixo);
+
+        var cima = 1;
+        var baixo = -1;
+        var velocidade = 5;
+        var posiY;
 
         function moverP1cima(){
-            p1.style.transform = "translateY(-10px)";
+            posiY += (cima*velocidade);
+            p1.style.top = posiY+'px';
+        }
+        function moverP1baixo(){
+            
         }
     </script>
 </body>
