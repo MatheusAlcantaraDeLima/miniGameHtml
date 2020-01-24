@@ -12,19 +12,16 @@
         <canvas id="telaGame" width="800px" height="500px">
 
         </canvas>
-        <div id="botoes">
-            <button id="up">Up</button>
-            <button id="down">Down</button>
-        </div>
     </div>
     <script>
-        var btnUp = document.getElementById("up");
-        var btnDown = document.getElementById("down");
         var canvas = document.getElementById("telaGame");
         var ctx = canvas.getContext("2d");
 
-        btnUp.addEventListener("click", moveP1Up);
-        btnDown.addEventListener("click", moveP1Down);
+        window.addEventListener("keydown",keyDown);
+
+        //Definindo variáveis de botões cima e baixo com os valores da letra A e S do teclado abnt-2
+        var Up = 87;
+        var Down = 83;
         //Declarando variáveis dos jogadores e bola
         var p1;
         var p2;
@@ -35,7 +32,6 @@
             y: (canvas.height / 2) - 80,
             altura: 160,
             largura: 15,
-            vel: 5
         }
 
         p2={
@@ -43,7 +39,6 @@
             y: (canvas.height / 2) - 80,
             altura: 160,
             largura: 15,
-            vel: 5
         }
 
         bola={
@@ -55,19 +50,23 @@
         //Desenhando jogadores e bola
        function desenha(){
            ctx.fillStyle = "white";
+           ctx.clearRect(0, 0, canvas.width, canvas.height);
            ctx.fillRect(p1.x, p1.y, p1.largura, p1.altura);
            ctx.fillRect(p2.x, p2.y, p2.largura, p2.altura);
            ctx.fillRect(bola.x, bola.y, bola.largura, bola.altura);
        }
-       //Animação do player1
-       function moveP1Up(){
-            
-       }
-       function moveP1Down(){
-            //y += p1.vel;
-            //y.style.top = y+"px";
-       }
        desenha();
+       
+       function keyDown(e){ //O e é o evento
+            var key = e.keyCode;
+            if(key == Up && key != Down){
+                p1.y-=40;
+                
+            }else if(key == Down && key != Up){
+                p1.y+=40;
+            }
+            desenha();
+        }
     </script>
 </body>
 </html>
