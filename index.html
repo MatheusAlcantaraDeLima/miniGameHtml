@@ -18,9 +18,14 @@
         </div>
     </div>
     <script>
+        var btnUp = document.getElementById("up");
+        var btnDown = document.getElementById("down");
         var canvas = document.getElementById("telaGame");
         var ctx = canvas.getContext("2d");
 
+        btnUp.addEventListener("click", moveP1Up);
+        btnDown.addEventListener("click", moveP1Down);
+        //Declarando variáveis dos jogadores e bola
         var p1;
         var p2;
         var bola;
@@ -29,14 +34,16 @@
             x: 10,
             y: (canvas.height / 2) - 80,
             altura: 160,
-            largura: 15
+            largura: 15,
+            vel: 5
         }
 
         p2={
             x: 775,
             y: (canvas.height / 2) - 80,
             altura: 160,
-            largura: 15
+            largura: 15,
+            vel: 5
         }
 
         bola={
@@ -45,13 +52,20 @@
             altura: 30,
             largura: 30
         }
+        //Desenhando jogadores e bola
        function desenha(){
            ctx.fillStyle = "white";
            ctx.fillRect(p1.x, p1.y, p1.largura, p1.altura);
-
            ctx.fillRect(p2.x, p2.y, p2.largura, p2.altura);
-
            ctx.fillRect(bola.x, bola.y, bola.largura, bola.altura);
+       }
+       //Animação do player1
+       function moveP1Up(){
+            
+       }
+       function moveP1Down(){
+            //y += p1.vel;
+            //y.style.top = y+"px";
        }
        desenha();
     </script>
