@@ -72,6 +72,10 @@
             }else if(key == Down2 && key != Up2){
                 p2.y+=40;
             }
+            //Aplica a física nos player 1 e 2, agora ambos não podem sair da tela
+            p1.y = Math.max(5, Math.min((canvas.height - p1.altura)-5, p1.y));
+        
+            p2.y = Math.max(5, Math.min((canvas.height - p2.altura)-5, p2.y));
             desenha();
         }
     </script>
