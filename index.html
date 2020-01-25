@@ -20,8 +20,12 @@
         window.addEventListener("keydown",keyDown);
 
         //Definindo variáveis de botões cima e baixo com os valores da letra A e S do teclado abnt-2
+        //Player 1
         var Up = 87;
         var Down = 83;
+        //Player 2
+        var Up2 = 38;
+        var Down2 = 40;
         //Declarando variáveis dos jogadores e bola
         var p1;
         var p2;
@@ -61,9 +65,12 @@
             var key = e.keyCode;
             if(key == Up && key != Down){
                 p1.y-=40;
-                
             }else if(key == Down && key != Up){
-                p1.y+=40;
+                p1.y+=40;           
+            }else if(key == Up2 && key != Down2){
+                p2.y-=40;
+            }else if(key == Down2 && key != Up2){
+                p2.y+=40;
             }
             desenha();
         }
